@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saving Pot | Smart Saving</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <div class="logo-icon">₹</div>
+        <span>Saving Pot</span>
+    </div>
+
+    <button class="reset-btn" onclick="resetApp()">
+        Reset
+    </button>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            SMART SAVING, SIMPLIFIED
+        </p>
+
+        <h1>
+            Turn your goal<br>
+            into a <span>saving plan.</span>
+        </h1>
+
+        <p class="hero-description">
+            Set a target, choose a deadline and Saving Pot
+            automatically creates a flexible saving plan for you.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="openModal()">
+                Create Saving Goal →
+            </button>
+
+            <button class="link-btn" onclick="scrollToDashboard()">
+                See how it works
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MONEY POT -->
+
+    <div class="pot-area">
+
+        <div class="coin coin1">₹</div>
+        <div class="coin coin2">₹</div>
+        <div class="coin coin3">₹</div>
+
+        <div class="money-pot">
+
+            <div class="pot-lid">
+                <div class="slot"></div>
+            </div>
+
+            <div class="pot-body">
+
+                <div class="shine"></div>
+
+                <div class="pot-symbol">
+                    ₹
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="pot-text">
+            Your money. Your goal. Your pace.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard" id="dashboard">
+
+    <div class="section-header">
+
+        <div>
+            <p class="small-title">
+                YOUR SAVING SPACE
+            </p>
+
+            <h2 id="goalTitle">
+                Two-Wheeler
+            </h2>
+        </div>
+
+        <button class="edit-btn" onclick="openModal()">
+            Edit Goal
+        </button>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat-card dark-card">
+
+            <p>Saved so far</p>
+
+            <h3 id="savedAmount">
+                ₹0
+            </h3>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <div class="progress-info">
+
+                <span id="percentage">
+                    0% complete
+                </span>
+
+                <span id="targetAmount">
+                    Target ₹1,20,000
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <p>This month's task</p>
+
+            <h3 id="monthlyAmount">
+                ₹10,000
+            </h3>
+
+            <span>
+                Recommended contribution
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <p>Money remaining</p>
+
+            <h3 id="remainingAmount">
+                ₹1,20,000
+            </h3>
+
+            <span>
+                To complete your goal
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- MONTHLY PLAN -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <p class="small-title">
+                        FLEXIBLE PLANNER
+                    </p>
+
+                    <h3>
+                        Monthly Saving Tasks
+                    </h3>
+                </div>
+
+                <span class="status">
+                    On Track
+                </span>
+
+            </div>
+
+
+            <div id="monthlyList">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUICK ADD -->
+
+        <div class="dashboard-card quick-add">
+
+            <p class="small-title">
+                QUICK ADD
+            </p>
+
+            <h3>
+                Did you save today?
+            </h3>
+
+            <p class="description">
+                Add any amount you saved.
+                Your Saving Pot will automatically
+                update your progress.
+            </p>
+
+
+            <div class="amount-input">
+
+                <span>₹</span>
+
+                <input
+                    type="number"
+                    id="saveInput"
+                    placeholder="2000"
+                >
+
+            </div>
+
+
+            <button
+                class="primary-btn full"
+                onclick="addSaving()"
+            >
+                Add to Savings
+            </button>
+
+
+            <div class="line"></div>
+
+
+            <div class="saving-summary">
+
+                <div class="mini-pot">
+                    ₹
+                </div>
+
+                <div>
+
+                    <strong id="summary">
+                        ₹0 saved
+                    </strong>
+
+                    <p>
+                        Small amounts count.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="features-heading">
+
+        <p class="small-title">
+            BUILT FOR REAL LIFE
+        </p>
+
+        <h2>
+            Flexible when money is tight.
+        </h2>
+
+        <p>
+            Saving Pot adjusts your future saving tasks
+            when you save less in a particular month.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature">
+
+            <span>01</span>
+
+            <h3>
+                Auto Plan
+            </h3>
+
+            <p>
+                Enter your target and deadline.
+                Saving Pot calculates a suggested
+                monthly amount.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <span>02</span>
+
+            <h3>
+                Carry Forward
+            </h3>
+
+            <p>
+                If you save less this month,
+                the remaining amount is automatically
+                added to future tasks.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <span>03</span>
+
+            <h3>
+                Flexible Payments
+            </h3>
+
+            <p>
+                Save ₹1,000 one month and ₹5,000
+                the next. Your plan adapts.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <span>04</span>
+
+            <h3>
+                Track Progress
+            </h3>
+
+            <p>
+                Easily see how much you've saved
+                and how much is still remaining.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- GOAL MODAL -->
+
+<div
+    class="modal"
+    id="goalModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <p class="small-title">
+            CREATE YOUR GOAL
+        </p>
+
+        <h2>
+            What are you saving for?
+        </h2>
+
+
+        <label>
+            Goal Name
+
+            <input
+                type="text"
+                id="goalName"
+                value="Two-Wheeler"
+            >
+
+        </label>
+
+
+        <label>
+            Target Amount
+
+            <input
+                type="number"
+                id="goalTarget"
+                value="120000"
+            >
+
+        </label>
+
+
+        <label>
+            Time Period
+
+            <select id="goalMonths">
+
+                <option value="6">
+                    6 Months
+                </option>
+
+                <option value="12" selected>
+                    12 Months
+                </option>
+
+                <option value="18">
+                    18 Months
+                </option>
+
+                <option value="24">
+                    24 Months
+                </option>
+
+                <option value="36">
+                    36 Months
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <button
+            class="primary-btn full"
+            onclick="createGoal()"
+        >
+            Build My Saving Plan →
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
